@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "../navigation";
 import Footer from "../footer";
 
-export const Layout = ({ children }) => {
+export default function Layout ({ children }) {
   return (
     <div className="App">
       <Navigation />

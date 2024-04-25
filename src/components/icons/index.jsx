@@ -1,3 +1,4 @@
+import React from "react";
 import Arrow from "../../assets/icons/arrow_green.png";
 import Logo from "../../assets/icons/logo.png";
 import Mail from "../../assets/icons/mail_green.png";
