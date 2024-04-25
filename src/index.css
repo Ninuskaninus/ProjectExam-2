@@ -19,6 +19,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: var(--mainFont);
   margin: 0;
@@ -32,8 +33,10 @@ body {
   
   main {
     width: 100%;
-    min-height: 100vh;
     position: relative;
+    min-height: 90vh;
+      display: flex;
+      flex-direction: column;
   }
   
   button {
@@ -45,7 +48,13 @@ body {
   
   a {
     text-decoration: none;
-    color: var(--black);
+    color: var(--palmtree);
+      font-weight: 600;
+    }
+    
+    input {
+      border: none;
+      outline: none;
   }
   
   h1 {
@@ -60,7 +69,7 @@ body {
     font-family: var(--mainFont);
     font-size: 2rem;
     font-weight: 400;
-    color: var(--black);
+    color: var(--palmtree);
     margin: 0;
   }
   
