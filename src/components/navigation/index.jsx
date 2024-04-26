@@ -5,6 +5,14 @@ import Icons from "../icons";
 import { Link } from "react-router-dom";
 
 export default function Navigation() {
+  const token = localStorage.getItem("token");
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  }
+
   return (
     <Nav>
       <Link to="/">
@@ -34,9 +42,7 @@ export default function Navigation() {
             </Link>
           </li>
         </MenuList>
-        <Link to="/login">
-          <p>Login</p>
-        </Link>
+          {token ? <p onClick={logout}>Log out</p> : <Link to="/login"><p>Log in</p></Link>}
       </div>
     </Nav>
   );

@@ -29,6 +29,7 @@ div{
 
 p{
   color: var(--palmtree);
+  cursor: pointer;
 }
 
   @media (max-width: 768px){
