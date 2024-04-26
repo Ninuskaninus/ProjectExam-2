@@ -11,7 +11,7 @@ export default function Login() {
           <ContentHeader>
             <p>Please come in!</p>
             <h2>Log in</h2>
-            <p>Not a member yet? <Link to="/createAccount">Create an account</Link></p>
+            <p>Not a member yet? <Link to="/CreateUser">Create an account</Link></p>
           </ContentHeader>
           <LoginForm />
         </Content>

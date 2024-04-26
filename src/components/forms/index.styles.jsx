@@ -6,52 +6,61 @@ max-width: 300px;
 `;
 
 export const FormItem = styled.div`
-position: relative;
-margin-bottom: 20px;
-img{
-  width: 20px;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  position: relative;
+  margin-bottom: 20px;
 
-input{
-border-radius: 10px;
-background: var(--black);
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-width: 100%;
-height: 50px;
-color: var(--white);
-padding-left: 10px;
-padding-top: 15px;
+  img {
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    transform: translateY(-50%);
+  }
 
-&::placeholder{
-  color: var(--white);
-}
+  input,
+  textarea {
+    border-radius: 10px;
+    background: var(--black);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 50px;
+    color: var(--white);
+    padding-left: 10px;
+    padding-top: 15px;
 
-}
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 50px var(--black) inset !important;
+      -webkit-text-fill-color: white !important;
+    }
 
-label{
-  color: var(--palmtree);
-  font-size: 0.7rem;
-  position: absolute;
-  top: 5px;
-  left: 10px;
-}
+    &::placeholder {
+      color: var(--white);
+    }
+  }
 
-&.error{
-  input{
+  label {
+    color: var(--palmtree);
+    font-size: 0.7rem;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
+
+  &.error input {
     border: solid 2px var(--error);
   }
-  label{
+
+  &.error label {
     color: var(--error);
   }
 
-}
-
-}
+  &.error p {
+    color: var(--error);
+    margin-top: 20px;
+    font-size: 1rem;
+  }
 `;
+
 
 
 
@@ -86,3 +95,4 @@ label{
   margin-left: 10px;
 }
 `;
+

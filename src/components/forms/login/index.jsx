@@ -10,6 +10,11 @@ export default function LoginForm() {
 
   const submitForm = async () => {
     try {
+      if (loginObject.email === "") {
+        throw new Error("Please enter a valid email address.");
+      } if (loginObject.password === "") {
+        throw new Error("Please enter a valid password.");
+      }
       await login(loginObject);
     } catch (error) {
       setError(error.message);
@@ -40,6 +45,7 @@ export default function LoginForm() {
           onChange={(e) => setLoginObject({ ...loginObject, password: e.target.value })}
           className={error ? "error" : ""}
         />
+        {error ? <p>{error}</p> : null}
         {error ? <Icons.PasswordRed /> : <Icons.Password />}
       </FormItem>
       <FormBtnContainer>
