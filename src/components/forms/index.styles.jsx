@@ -27,6 +27,7 @@ export const FormItem = styled.div`
     color: var(--white);
     padding-left: 10px;
     padding-top: 15px;
+    font-family: var--(mainFont);
 
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 50px var(--black) inset !important;
@@ -36,6 +37,12 @@ export const FormItem = styled.div`
     &::placeholder {
       color: var(--white);
     }
+  }
+
+  textarea {
+    height: 100px;
+    padding-top: 25px;
+    max-width: 300px;
   }
 
   label {
@@ -59,6 +66,8 @@ export const FormItem = styled.div`
     margin-top: 20px;
     font-size: 1rem;
   }
+
+
 `;
 
 

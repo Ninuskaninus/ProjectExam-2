@@ -52,7 +52,8 @@ body {
       font-weight: 600;
     }
     
-    input {
+        input,
+        textarea {
       border: none;
       outline: none;
   }

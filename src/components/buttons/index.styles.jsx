@@ -11,3 +11,17 @@ cursor: pointer;
   background: var(--marine);
 }
 `;
+
+export const BtnSettings = styled.button`
+width: 30px;
+height: 30px;
+padding: 0;
+background: none;
+position: absolute;
+top: 20px;
+right: 20px;
+z-index: 100;
+img{
+  width: 100%;
+}
+`;

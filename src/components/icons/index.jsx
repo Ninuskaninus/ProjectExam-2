@@ -7,9 +7,9 @@ import Password from "../../assets/icons/password_green.png";
 import PasswordRed from "../../assets/icons/password_red.png";
 import UserIcon from "../../assets/icons/id_green.png";
 import UserIconRed from "../../assets/icons/id_red.png";
-
+import Settings from "../../assets/icons/settings_green.png";
 import BackgroundImg from "../../assets/images/background.avif";
-
+import Add from "../../assets/icons/add_circle_blue.png";
 
 const Icons = {
   Arrow: () => {
@@ -55,6 +55,18 @@ const Icons = {
   UserIconRed: () => {
     return (
       <img src={UserIconRed} alt="User icon error" role="presentation" />
+    );
+  },
+
+  Settings: () => {
+    return (
+      <img src={Settings} alt="Settings icon" role="presentation" />
+    );
+  },
+
+  Add: () => {
+    return (
+      <img src={Add} alt="Add icon" role="presentation" />
     );
   },
 
