@@ -5,6 +5,9 @@ import Mail from "../../assets/icons/mail_green.png";
 import MailRed from "../../assets/icons/mail_red.png";
 import Password from "../../assets/icons/password_green.png";
 import PasswordRed from "../../assets/icons/password_red.png";
+import UserIcon from "../../assets/icons/id_green.png";
+import UserIconRed from "../../assets/icons/id_red.png";
+
 import BackgroundImg from "../../assets/images/background.avif";
 
 
@@ -40,6 +43,18 @@ const Icons = {
   PasswordRed: () => {
     return (
       <img src={PasswordRed} alt="Password icon error" role="presentation" />
+    );
+  },
+
+  UserIcon: () => {
+    return (
+      <img src={UserIcon} alt="User icon" role="presentation" />
+    );
+  },
+
+  UserIconRed: () => {
+    return (
+      <img src={UserIconRed} alt="User icon error" role="presentation" />
     );
   },
 
