@@ -20,6 +20,10 @@ export default async function getProfile() {
     const response = await fetch(url, options);
     const json = await response.json();
     const profile = json;
+    localStorage.setItem("manager", profile.data.venueManager);
+    localStorage.setItem("avatar", JSON.stringify(profile.data.avatar.url));
+    localStorage.setItem("banner", JSON.stringify(profile.data.banner.url));
+    localStorage.setItem("bio", JSON.stringify(profile.data.bio));
     return profile;
   } catch (error) {
     console.log(error);

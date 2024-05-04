@@ -17,6 +17,7 @@ export default async function getApiKey() {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
+    localStorage.setItem("apiKey", json.data.key);
     return json.data.key;
   } catch (error) {
     console.log(error);
