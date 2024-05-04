@@ -1,4 +1,9 @@
 export default async function getApiKey() {
+  const existingApiKey = localStorage.getItem("apiKey");
+  if (existingApiKey) {
+    return existingApiKey;
+  }
+
   const url = "https://v2.api.noroff.dev/auth/create-api-key";
   const token = localStorage.getItem("token");
   const body = {
@@ -17,8 +22,11 @@ export default async function getApiKey() {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
-    localStorage.setItem("apiKey", json.data.key);
-    return json.data.key;
+    const apiKey = json.data.key;
+
+    localStorage.setItem("apiKey", apiKey);
+
+    return apiKey;
   } catch (error) {
     console.log(error);
   }

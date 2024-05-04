@@ -11,6 +11,7 @@ import SettingsBtn from "../../components/buttons/settingsBtn/index.jsx";
 import Loader from "../../components/loader/index.jsx";
 import EditProfile from "../../components/modules/editProfile/index.jsx";
 import BioContainer from "../../components/bioContainer/index.jsx";
+import MyVenues from "../../components/myVenues/index.jsx";
 
 export default function Profile() {
   const [profile, setProfile] = useState(null);
@@ -56,7 +57,8 @@ export default function Profile() {
       ) : (
         <Loader />
       )}
-      {profile ? <BioContainer></BioContainer> : null}
+      <BioContainer />
+      <MyVenues />
     </Pagecontainer>
   );
 }

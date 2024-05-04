@@ -1,17 +1,14 @@
 import React from "react";
+import { Container } from "./index.styles";
 
-export const BioContainer = ({ profile }) => {
+export default function BioContainer() {
+  const bio = localStorage.getItem("bio").replace(/^"|"$/g, "");
   return (
-    <div>
-      {profile ? (
-        <div>
-          <img src={profile.avatar.url} alt={profile.name} />
-          <h3>{profile.name}</h3>
-          <p>{profile.email}</p>
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
-    </div>
+    <>
+      <Container>
+        <h2>About me</h2>
+        <p>{bio}</p>
+      </Container>
+    </>
   );
-};
+}
