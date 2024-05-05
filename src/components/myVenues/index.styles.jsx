@@ -14,6 +14,7 @@ export const Container = styled.div`
 export const ContainerHead = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 export const CardContainer = styled.div``;

@@ -1,5 +1,11 @@
 import React from "react";
+import { BtnAddVenue } from "../index.styles";
 
 export default function AddVenue() {
-  return <button>Add venue</button>;
+  return (
+    <BtnAddVenue>
+      <div>+</div>
+      <p>Add new venue</p>
+    </BtnAddVenue>
+  );
 }

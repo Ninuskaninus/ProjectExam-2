@@ -21,7 +21,6 @@ export default async function getProfile() {
     const json = await response.json();
     const profile = json;
     localStorage.setItem("manager", JSON.stringify(profile.data.venueManager));
-    console.log(profile);
     return profile;
   } catch (error) {
     console.log(error);

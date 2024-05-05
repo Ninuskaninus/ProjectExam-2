@@ -35,3 +35,30 @@ export const BtnCancel = styled.button`
     font-weight: bold;
   }
 `;
+
+export const BtnAddVenue = styled.button`
+  background: transparent;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-size: 20px;
+  }
+
+  div {
+    background: var(--palmtree);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+`;
+
+export const BtnView = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--palmtree);
+  border-radius: 100px;
+  padding: 5px 10px;
+`;

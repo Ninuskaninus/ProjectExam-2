@@ -1,6 +1,5 @@
 export default async function getVenues() {
-  console.log("getVenues");
-  /*   const url =
+  const url =
     "https://v2.api.noroff.dev/holidaze/venues/?_owner=true&_bookings=true";
 
   const options = {
@@ -14,10 +13,9 @@ export default async function getVenues() {
     .then((response) => response.json())
     .then((result) => {
       const venues = result.data;
-      console.log(venues);
       return venues;
     })
     .catch((error) => {
       console.error("Error:", error);
-    }); */
+    });
 }
