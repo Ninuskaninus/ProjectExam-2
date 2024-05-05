@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.form`
-widht: 100%;
-max-width: 300px;
+  widht: 100%;
+  max-width: 300px;
 `;
 
 export const FormItem = styled.div`
@@ -27,6 +27,7 @@ export const FormItem = styled.div`
     color: var(--white);
     padding-left: 10px;
     padding-top: 15px;
+    font-family: var--(mainFont);
 
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 50px var(--black) inset !important;
@@ -36,6 +37,12 @@ export const FormItem = styled.div`
     &::placeholder {
       color: var(--white);
     }
+  }
+
+  textarea {
+    height: 100px;
+    padding-top: 25px;
+    max-width: 300px;
   }
 
   label {
@@ -61,38 +68,35 @@ export const FormItem = styled.div`
   }
 `;
 
-
-
-
 export const FormBtnContainer = styled.div`
-margin-top: 50px;
+  margin-top: 50px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
 `;
-
-
 
 export const FormCheckbox = styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 
-input[type="checkbox"] {
-  --webkit-appearance: none;
-  --moz-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: solid var(--palmtree) 2px;
-  cursor: pointer;
+  input[type="checkbox"] {
+    --webkit-appearance: none;
+    --moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid var(--palmtree) 2px;
+    cursor: pointer;
 
-  &:checked {
-    background: var(--palmtree);
+    &:checked {
+      background: var(--palmtree);
+    }
   }
-}
 
-label{
-  color: var(--white);
-  font-size: 1rem;
-  margin-left: 10px;
-}
+  label {
+    color: var(--white);
+    font-size: 1rem;
+    margin-left: 10px;
+  }
 `;
-

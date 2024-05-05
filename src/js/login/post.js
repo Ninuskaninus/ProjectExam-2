@@ -19,6 +19,10 @@ export default async function login(loginObject) {
     }
     localStorage.setItem("token", data.data.accessToken);
     localStorage.setItem("user", JSON.stringify(data.data.name));
+    localStorage.setItem("avatar", JSON.stringify(data.data.avatar.url));
+    localStorage.setItem("banner", JSON.stringify(data.data.banner.url));
+    localStorage.setItem("bio", JSON.stringify(data.data.bio));
+
     window.location.href = "/profile";
   } catch (error) {
     throw new Error(`An error occurred during login: ${error.message}`);

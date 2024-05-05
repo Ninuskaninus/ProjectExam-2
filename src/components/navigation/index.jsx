@@ -8,10 +8,9 @@ export default function Navigation() {
   const token = localStorage.getItem("token");
 
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.clear();
     window.location.href = "/";
-  }
+  };
 
   return (
     <Nav>
@@ -24,7 +23,7 @@ export default function Navigation() {
         <HamburgerMenu />
         <MenuList>
           <li>
-             <Icons.Arrow />
+            <Icons.Arrow />
             <Link to="/">
               <p>Home</p>
             </Link>
@@ -42,7 +41,13 @@ export default function Navigation() {
             </Link>
           </li>
         </MenuList>
-          {token ? <p onClick={logout}>Log out</p> : <Link to="/login"><p>Log in</p></Link>}
+        {token ? (
+          <p onClick={logout}>Log out</p>
+        ) : (
+          <Link to="/login">
+            <p>Log in</p>
+          </Link>
+        )}
       </div>
     </Nav>
   );
