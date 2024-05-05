@@ -27,10 +27,26 @@ export default function MyVenuesList() {
   const IconHandler = ({ venue }) => {
     return (
       <IconContainer>
-        <div>{venue.meta.wifi && <Icons.Wifi />}</div>
-        <div> {venue.meta.pets && <Icons.Pets />}</div>
-        <div>{venue.meta.breakfast && <Icons.Breakfast />}</div>
-        <div>{venue.meta.parking && <Icons.Parking />}</div>
+        {venue.meta.wifi && (
+          <div>
+            <Icons.Wifi />
+          </div>
+        )}
+        {venue.meta.pets && (
+          <div>
+            <Icons.Pets />
+          </div>
+        )}
+        {venue.meta.breakfast && (
+          <div>
+            <Icons.Breakfast />
+          </div>
+        )}
+        {venue.meta.parking && (
+          <div>
+            <Icons.Parking />
+          </div>
+        )}
       </IconContainer>
     );
   };
