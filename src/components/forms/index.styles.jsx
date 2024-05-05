@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const FormContainer = styled.form`
   widht: 100%;
   max-width: 300px;
+
+  h2 {
+    margin: 20px 0;
+    color: var(--white);
+  }
 `;
 
 export const FormItem = styled.div`
@@ -98,5 +103,17 @@ export const FormCheckbox = styled.div`
     color: var(--white);
     font-size: 1rem;
     margin-left: 10px;
+  }
+`;
+
+export const FormCheckboxItem = styled.div`
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+
+  img {
+    height: 20px;
+    margin-left: 5px;
   }
 `;

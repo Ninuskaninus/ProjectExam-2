@@ -99,7 +99,7 @@ export default function EditProfileForm() {
             Text="Save"
             onClick={handleFormSubmit}
           ></FormBtn>
-          <CancelBtn type="button" />
+          <CancelBtn id="cancelEditProfile" type="button" />
         </FormBtnContainer>
       </FormContainer>
     </>

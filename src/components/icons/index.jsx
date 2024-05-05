@@ -17,10 +17,16 @@ import Parking from "../../assets/icons/parcing_blue.png";
 import Reviews from "../../assets/icons/reviews_white.png";
 import Person from "../../assets/icons/person_white.png";
 import LocationWhite from "../../assets/icons/location_white.png";
+import WifiWhite from "../../assets/icons/wifi_white.png";
+import ParkingWhite from "../../assets/icons/parcing_white.png";
+import BreakfastWhite from "../../assets/icons/breakfast_white.png";
+import PetsWhite from "../../assets/icons/pets_white.png";
 
 const Icons = {
   Arrow: () => {
-    return <img src={Arrow} alt="Arrow icon" role="presentation" />;
+    return (
+      <img src={Arrow} name="Arrow icon" alt="Arrow icon" role="presentation" />
+    );
   },
   Logo: () => {
     return <img src={Logo} alt="Holidaze logo icon" role="presentation" />;
@@ -85,6 +91,24 @@ const Icons = {
 
   LocationWhite: () => {
     return <img src={LocationWhite} alt="Location icon" role="presentation" />;
+  },
+
+  WifiWhite: () => {
+    return <img src={WifiWhite} alt="Wifi icon" role="presentation" />;
+  },
+
+  ParkingWhite: () => {
+    return <img src={ParkingWhite} alt="Parking icon" role="presentation" />;
+  },
+
+  BreakfastWhite: () => {
+    return (
+      <img src={BreakfastWhite} alt="Breakfast icon" role="presentation" />
+    );
+  },
+
+  PetsWhite: () => {
+    return <img src={PetsWhite} alt="Pets icon" role="presentation" />;
   },
 
   BackgroundImg: {
