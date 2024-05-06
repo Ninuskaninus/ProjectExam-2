@@ -16,10 +16,16 @@ import {
 import Icons from "../icons/index.jsx";
 import { Link } from "react-router-dom";
 import Loader from "../loader/index.jsx";
+import AboutUser from "../modules/aboutUser/index.jsx";
+import ViewBtn from "../buttons/viewBtn/index.jsx";
+import filtering from "../../js/filter/filtering.js";
+
 
 export default function Card() {
   const [venues, setVenues] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  filtering();
 
   useEffect(() => {
     getVenues().then((data) => {
@@ -33,17 +39,26 @@ export default function Card() {
     });
   }, []);
 
-  console.log(venues);
 
   if (loading) {
     return <Loader />;
   }
 
+  const showModal = (e) => {
+    const modal = document.getElementById(venues.id + "Modal");
+    console.log(modal);
+  }
+
   return (
     <>
       {venues.map((venue) => (
-        <Link to={`/venue=${venue.id}`} key={venue.id}>
-          <Container key={venue.id}>
+          <Container id={venue.id} key={venue.id}>
+            <AboutUser
+              ownerId={venue.id + "Modal"}
+              ownerName={venue.owner.name}
+              ownerAvatar={venue.owner.avatar.url}
+              ownerBio={venue.owner.bio}
+            />
             <ContainerImg
               imageurl={
                 venue.media.length > 0
@@ -64,7 +79,9 @@ export default function Card() {
             </ContainerImg>
             <CardInfo>
               <CardTop>
-                <CardManager>
+              <CardManager
+                onClick={showModal}
+              >
                   <img src={venue.owner.avatar.url} alt="" />
                   <p>{venue.owner.name}</p>
                 </CardManager>
@@ -82,12 +99,14 @@ export default function Card() {
                   <CardRating>
                     <Icons.Reviews />
                     <p>{venue.rating}</p>
+                    <Link to={`/venue=${venue.id}`} key={venue.id}>
+                      <ViewBtn />
+                    </Link>
                   </CardRating>
                 </CardPrice>
               </CardBottom>
             </CardInfo>
           </Container>
-        </Link>
       ))}
     </>
   );

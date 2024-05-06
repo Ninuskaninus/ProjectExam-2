@@ -21,6 +21,9 @@ import WifiWhite from "../../assets/icons/wifi_white.png";
 import ParkingWhite from "../../assets/icons/parcing_white.png";
 import BreakfastWhite from "../../assets/icons/breakfast_white.png";
 import PetsWhite from "../../assets/icons/pets_white.png";
+import Filter from "../../assets/icons/filter_white.png";
+import Search from "../../assets/icons/search.png";
+import Close from "../../assets/icons/close.png";
 
 const Icons = {
   Arrow: () => {
@@ -109,6 +112,18 @@ const Icons = {
 
   PetsWhite: () => {
     return <img src={PetsWhite} alt="Pets icon" role="presentation" />;
+  },
+
+  Filter: () => {
+    return <img src={Filter} alt="Filter icon" role="presentation" />;
+  },
+
+  Search: () => {
+    return <img src={Search} alt="Search icon" role="presentation" />;
+  },
+
+  Close: () => {
+    return <img src={Close} alt="Close icon" role="presentation" />;
   },
 
   BackgroundImg: {

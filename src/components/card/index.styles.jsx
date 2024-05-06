@@ -6,11 +6,8 @@ export const Container = styled.div`
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background: var(--primary);
   border-radius: 10px;
+  position: relative;
 
-  &:hover {
-    border: 1px solid var(--white);
-    transition: 0.3s;
-  }
 `;
 
 export const ContainerImg = styled.div`
@@ -74,6 +71,10 @@ export const CardManager = styled.div`
   p {
     color: var(--white);
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const CardBeds = styled.div`
@@ -97,6 +98,7 @@ export const CardBottom = styled.div`
   justify-content: space-between;
   h3 {
     color: var(--white);
+    font-size: 1.6rem;
   }
 `;
 
