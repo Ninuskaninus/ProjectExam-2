@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getVenues from "../../js/venues/get.js";
+
 import {
   Container,
   ContainerImg,
@@ -16,34 +17,45 @@ import {
 import Icons from "../icons/index.jsx";
 import { Link } from "react-router-dom";
 import Loader from "../loader/index.jsx";
+import AboutUser from "../modules/aboutUser/index.jsx";
+import ViewBtn from "../buttons/viewBtn/index.jsx";
+
+
 
 export default function Card() {
   const [venues, setVenues] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getVenues().then((data) => {
-      const filteredVenues = data.filter((venue) => {
-        const name = venue.name.toLowerCase();
-        return !name.includes("test") && !name.includes("string");
-      });
-
-      setVenues(filteredVenues);
+    async function fetchData() {
+      const venues = await getVenues();
+      setVenues(venues);
       setLoading(false);
-    });
+    }
+    fetchData();
   }, []);
 
-  console.log(venues);
+
 
   if (loading) {
     return <Loader />;
   }
 
+  const showModal = (e) => {
+    const modal = document.getElementById(venues.id + "Modal");
+    console.log(modal);
+  }
+
   return (
     <>
       {venues.map((venue) => (
-        <Link to={`/venue=${venue.id}`} key={venue.id}>
-          <Container key={venue.id}>
+          <Container id={venue.id} key={venue.id}>
+            <AboutUser
+              ownerId={venue.id + "Modal"}
+              ownerName={venue.owner.name}
+              ownerAvatar={venue.owner.avatar.url}
+              ownerBio={venue.owner.bio}
+            />
             <ContainerImg
               imageurl={
                 venue.media.length > 0
@@ -55,16 +67,18 @@ export default function Card() {
                 {venue.location.country || "Unknown"} |{" "}
                 {venue.location.city || "Unknown"}
               </CardLocation>
-              <CardIcons>
-                {venue.meta.wifi && <Icons.Wifi />}
-                {venue.meta.pets && <Icons.Pets />}
-                {venue.meta.breakfast && <Icons.Breakfast />}
-                {venue.meta.parking && <Icons.Parking />}
-              </CardIcons>
+                <CardIcons>
+                  {venue.meta && venue.meta.wifi && <Icons.Wifi />}
+                  {venue.meta && venue.meta.pets && <Icons.Pets />}
+                  {venue.meta && venue.meta.breakfast && <Icons.Breakfast />}
+                  {venue.meta && venue.meta.parking && <Icons.Parking />}
+                </CardIcons>
             </ContainerImg>
             <CardInfo>
               <CardTop>
-                <CardManager>
+              <CardManager
+                onClick={showModal}
+              >
                   <img src={venue.owner.avatar.url} alt="" />
                   <p>{venue.owner.name}</p>
                 </CardManager>
@@ -82,12 +96,14 @@ export default function Card() {
                   <CardRating>
                     <Icons.Reviews />
                     <p>{venue.rating}</p>
+                    <Link to={`/venue=${venue.id}`} key={venue.id}>
+                      <ViewBtn />
+                    </Link>
                   </CardRating>
                 </CardPrice>
               </CardBottom>
             </CardInfo>
           </Container>
-        </Link>
       ))}
     </>
   );

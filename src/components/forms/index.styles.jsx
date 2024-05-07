@@ -117,3 +117,72 @@ export const FormCheckboxItem = styled.div`
     margin-left: 5px;
   }
 `;
+
+export const FormSearch = styled.form`
+position: relative;
+display: flex;
+flex-direction: column;
+
+input{
+border-radius: 10px;
+background: var(--White, #FFF);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+width: 100%;
+height: 30px;
+padding-left: 10px;
+}
+
+img{
+position: absolute;
+right: 10px;
+top: 8px;
+}
+
+`;
+
+export const FormWhite = styled(FormContainer)`
+h4{
+  margin: 20px 0;
+}
+`;
+
+export const FormWhiteItem = styled(FormItem)`
+input{
+  background: var(--white);
+  color: var(--black);
+}
+label{
+  color: var(--black);
+}
+`;
+
+export const FormWhiteCheckbox = styled(FormCheckbox)`
+label{
+color: var(--black);
+}
+`;
+
+export const ResultsContainer = styled.div`
+background: #fff;
+margin-top: 10px;
+max-height: 300px;
+max-width: 300px;
+overflow-y: scroll;
+overflow-x: hidden;
+display: flex;
+gap: 10px;
+flex-direction: column;
+`;
+
+export const ResultsItem = styled.div`
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+padding: 5px;
+
+&:hover{
+  background: var(--palmtree);
+  p{
+    color: var(--white);
+  }
+}
+
+`;

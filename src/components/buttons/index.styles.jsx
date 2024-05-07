@@ -62,3 +62,23 @@ export const BtnView = styled.button`
   border-radius: 100px;
   padding: 5px 10px;
 `;
+
+export const BtnFilter = styled.button`
+background: var(--primary);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+display: flex;
+align-items: center;
+padding: 10px;
+border-radius: 10px;
+width: 100px;
+
+img{
+  height: 15px !important;
+}
+
+p{
+  color: var(--white);
+  font-weight: 500;
+}
+
+`;

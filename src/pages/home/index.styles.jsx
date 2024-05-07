@@ -20,6 +20,7 @@ export const Venues = styled.div`
   max-width: 980px;
   margin: 100px 0;
   padding: 0 20px;
+  position: relative;
 `;
 
 export const VenuesHead = styled.div`
