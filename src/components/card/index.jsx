@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getVenues from "../../js/venues/get.js";
+
 import {
   Container,
   ContainerImg,
@@ -18,26 +19,22 @@ import { Link } from "react-router-dom";
 import Loader from "../loader/index.jsx";
 import AboutUser from "../modules/aboutUser/index.jsx";
 import ViewBtn from "../buttons/viewBtn/index.jsx";
-import filtering from "../../js/filter/filtering.js";
+
 
 
 export default function Card() {
   const [venues, setVenues] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  filtering();
-
   useEffect(() => {
-    getVenues().then((data) => {
-      const filteredVenues = data.filter((venue) => {
-        const name = venue.name.toLowerCase();
-        return !name.includes("test") && !name.includes("string");
-      });
-
-      setVenues(filteredVenues);
+    async function fetchData() {
+      const venues = await getVenues();
+      setVenues(venues);
       setLoading(false);
-    });
+    }
+    fetchData();
   }, []);
+
 
 
   if (loading) {
@@ -70,12 +67,12 @@ export default function Card() {
                 {venue.location.country || "Unknown"} |{" "}
                 {venue.location.city || "Unknown"}
               </CardLocation>
-              <CardIcons>
-                {venue.meta.wifi && <Icons.Wifi />}
-                {venue.meta.pets && <Icons.Pets />}
-                {venue.meta.breakfast && <Icons.Breakfast />}
-                {venue.meta.parking && <Icons.Parking />}
-              </CardIcons>
+                <CardIcons>
+                  {venue.meta && venue.meta.wifi && <Icons.Wifi />}
+                  {venue.meta && venue.meta.pets && <Icons.Pets />}
+                  {venue.meta && venue.meta.breakfast && <Icons.Breakfast />}
+                  {venue.meta && venue.meta.parking && <Icons.Parking />}
+                </CardIcons>
             </ContainerImg>
             <CardInfo>
               <CardTop>

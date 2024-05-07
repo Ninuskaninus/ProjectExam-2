@@ -1,5 +1,3 @@
-// filtering.js
-
 import getVenues from "../venues/get.js";
 
 export default async function filtering(filter) {
@@ -10,29 +8,36 @@ export default async function filtering(filter) {
       return [];
     }
 
-    const filteredVenues = venues.filter((venue) => {
+    const filteredVenues = venues.filter((venue, index) => {
       const meta = venue.meta;
 
-      // Check if meta is defined
       if (!meta) {
+        console.log("Venue without meta:", venue, "Index:", index);
         return false;
       }
 
-      // Check each filter criteria
+      if (!venue.hasOwnProperty("meta")) {
+        console.log("Venue without meta:", venue, "Index:", index);
+        return false;
+      }
+
       if (
         (filter.pets && !meta.pets) ||
         (filter.wifi && !meta.wifi) ||
         (filter.breakfast && !meta.breakfast) ||
         (filter.parking && !meta.parking)
       ) {
+        console.log("Skipping venue due to missing properties:", venue);
         return false;
       }
 
       if (filter.price && venue.price > filter.price) {
+        console.log("Skipping venue due to price filter:", venue);
         return false;
       }
 
       if (filter.guests && venue.maxGuests < filter.guests) {
+        console.log("Skipping venue due to guests filter:", venue);
         return false;
       }
 
@@ -42,6 +47,7 @@ export default async function filtering(filter) {
           !venue.name.toLowerCase().includes(search) &&
           !venue.location.city.toLowerCase().includes(search)
         ) {
+          console.log("Skipping venue due to search filter:", venue);
           return false;
         }
       }

@@ -21,13 +21,16 @@ export default function FilterForm() {
 
   ]);
 
-  useEffect(() => {
+/*   useEffect(() => {
     Search(search).then((data) => {
       setVenues(data);
     });
   }, [search]);
 
-  filtering(filter);
+  useEffect(() => {
+  setVenues(filtering(filter));
+}, [filter]); */
+
 
   return (
     <>
@@ -55,61 +58,67 @@ export default function FilterForm() {
       <FormWhite action="">
         <h4>Amenities</h4>
         <FormWhiteCheckbox>
-          <input
-            onChange={(e) => setFilter({ wifi: e.target.checked })}
-            value={filter.wifi}
-            type="checkbox"
-            name="wifi"
-            id="wifi" />
-          <label htmlFor="wifi">Wifi</label>
-        </FormWhiteCheckbox>
-        <FormWhiteCheckbox>
-          <input
-            onChange={(e) => setFilter({ pets: e.target.checked })}
-            value={filter.pets}
-            type="checkbox"
-            name="pets"
-            id="pets" />
-          <label htmlFor="pets">Pets allowed</label>
-        </FormWhiteCheckbox>
-        <FormWhiteCheckbox>
-          <input
-            onChange={(e) => setFilter({ breakfast: e.target.checked })}
-            value={filter.breakfast}
-            type="checkbox"
-            name="breakfast"
-            id="breakfast" />
-          <label htmlFor="breakfast">Breakfast included</label>
-        </FormWhiteCheckbox>
-        <FormWhiteCheckbox>
-          <input
-            onChange={(e) => setFilter({ parking: e.target.checked })}
-            value={filter.parking}
-            type="checkbox"
-            name="parking"
-            id="parking" />
-          <label htmlFor="parking">Parking</label>
-        </FormWhiteCheckbox>
+  <input
+    onChange={(e) => setFilter(prevFilter => ({ ...prevFilter, wifi: e.target.checked }))}
+    checked={filter.wifi}
+    type="checkbox"
+    name="wifi"
+    id="wifi"
+  />
+  <label htmlFor="wifi">Wifi</label>
+</FormWhiteCheckbox>
+<FormWhiteCheckbox>
+  <input
+    onChange={(e) => setFilter(prevFilter => ({ ...prevFilter, pets: e.target.checked }))}
+    checked={filter.pets}
+    type="checkbox"
+    name="pets"
+    id="pets"
+  />
+  <label htmlFor="pets">Pets allowed</label>
+</FormWhiteCheckbox>
+<FormWhiteCheckbox>
+  <input
+    onChange={(e) => setFilter(prevFilter => ({ ...prevFilter, breakfast: e.target.checked }))}
+    checked={filter.breakfast}
+    type="checkbox"
+    name="breakfast"
+    id="breakfast"
+  />
+  <label htmlFor="breakfast">Breakfast included</label>
+</FormWhiteCheckbox>
+<FormWhiteCheckbox>
+  <input
+    onChange={(e) => setFilter(prevFilter => ({ ...prevFilter, parking: e.target.checked }))}
+    checked={filter.parking}
+    type="checkbox"
+    name="parking"
+    id="parking"
+  />
+  <label htmlFor="parking">Parking</label>
+</FormWhiteCheckbox>
         <h4>Price</h4>
-        <FormWhiteItem>
-          <label htmlFor="price">Max price per night</label>
-          <input
-            onChange={(e) => setFilter({ price: e.target.value })}
-            value={filter.price}
-            type="number"
-            name="price"
-            id="price" />
-        </FormWhiteItem>
-        <h4>Guests</h4>
-        <FormWhiteItem>
-          <label htmlFor="guests">Number of guests</label>
-          <input
-            onChange={(e) => setFilter({ guests: e.target.value })}
-            value={filter.guests}
-            type="number"
-            name="guests"
-            id="guests" />
-        </FormWhiteItem>
+<FormWhiteItem>
+  <label htmlFor="price">Max price per night</label>
+  <input
+    onChange={(e) => setFilter(prevFilter => ({ ...prevFilter, price: e.target.value }))}
+    value={filter.price}
+    type="number"
+    name="price"
+    id="price"
+  />
+</FormWhiteItem>
+<h4>Guests</h4>
+<FormWhiteItem>
+  <label htmlFor="guests">Number of guests</label>
+  <input
+    onChange={(e) => setFilter(prevFilter => ({ ...prevFilter, guests: e.target.value }))}
+    value={filter.guests}
+    type="number"
+    name="guests"
+    id="guests"
+  />
+</FormWhiteItem>
       </FormWhite>
     </>
   );
